@@ -1,18 +1,19 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
 body {
   background-color: #28a745;
   font-family: Arial, sans-serif;
 }
 
 .card {
-  width: 150px;
-  height: 200px;
+  width: 210px; /* Ancho de la carta */
+  height: 300px; /* Altura de la carta */
   border: 1px solid #000;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+  font-size: 5rem; /* Tamaño de fuente del valor central */
   margin: 20px auto;
   background-color: white;
   position: relative;
@@ -22,17 +23,17 @@ body {
 .card::after {
   content: "";
   position: absolute;
-  font-size: 1.5rem;
+  font-size: 4rem; /* Tamaño de fuente de los símbolos */
 }
 
 .card::before {
-  top: 10px;
-  left: 10px;
+  top: -5px; /* Ajusta el margen superior */
+  left: 5px;
 }
 
 .card::after {
-  bottom: 10px;
-  right: 10px;
+  bottom: -5px; /* Ajusta el margen inferior */
+  right: 5px;
   transform: rotate(180deg);
 }
 
@@ -46,15 +47,6 @@ body {
   color: black;
 }
 
-.size-inputs {
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.size-inputs .form-group {
-  margin-bottom: 15px;
-}
-
 .btn {
-  width: 100%;
+  width: 45%; /* Ancho del botón */
 }
