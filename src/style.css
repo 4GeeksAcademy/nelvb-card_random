@@ -1,38 +1,38 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 body {
-  background-color: #28a745;
+  background-color: #390707;
   font-family: Arial, sans-serif;
 }
 
 .card {
-  width: 210px; /* Ancho de la carta */
-  height: 300px; /* Altura de la carta */
+  width: 210px;
+  height: 300px;
   border: 1px solid #000;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5rem; /* Tamaño de fuente del valor central */
+  font-size: 5rem;
   margin: 20px auto;
   background-color: white;
   position: relative;
+  box-shadow: 10px -10px 20px rgba(0, 0, 0, 0.8); /* Sombra más fuerte arriba y a la derecha */
 }
 
-.card::before,
-.card::after {
-  content: "";
+.card .top-left,
+.card .bottom-right {
+  font-size: 4rem;
   position: absolute;
-  font-size: 4rem; /* Tamaño de fuente de los símbolos */
 }
 
-.card::before {
-  top: -5px; /* Ajusta el margen superior */
+.card .top-left {
+  top: -5px;
   left: 5px;
 }
 
-.card::after {
-  bottom: -5px; /* Ajusta el margen inferior */
+.card .bottom-right {
+  bottom: -5px;
   right: 5px;
   transform: rotate(180deg);
 }
@@ -48,5 +48,20 @@ body {
 }
 
 .btn {
-  width: 45%; /* Ancho del botón */
+  width: 25%; /* Ancho del botón */
+  box-shadow: 10px -10px 20px rgba(0, 0, 0, 0.8);
+}
+.text-white {
+  font-family: "Dancing Script", cursive;
+  text-shadow: 0 0 5px red, 0 0 15px red, 0 0 30px red, 0 0 50px red;
+}
+.btn-success {
+  background-color: #ff5733;
+  border-color: #ff5733;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #2fbc40;
+  border-color: #e74c3c;
 }

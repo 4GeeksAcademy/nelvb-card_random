@@ -1,4 +1,3 @@
-/* eslint-disable */
 import "bootstrap";
 import "./style.css";
 
@@ -8,6 +7,8 @@ import "./assets/img/4geeks.ico";
 document.addEventListener("DOMContentLoaded", function() {
   const cardElement = document.getElementById("card");
   const generateButton = document.getElementById("generateButton");
+  const cardWidthInput = document.getElementById("cardWidth");
+  const cardHeightInput = document.getElementById("cardHeight");
 
   const suits = ["heart", "spade", "club", "diamond"];
   const values = [
@@ -40,25 +41,47 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function generateCard() {
     const { suit, value } = getRandomCard();
+
+    let width = cardWidthInput.value ? parseInt(cardWidthInput.value) : 210;
+    let height = cardHeightInput.value ? parseInt(cardHeightInput.value) : 300;
+
+    // límites
+    if (width < 90) width = 90;
+    if (width > 300) width = 300;
+    if (height < 200) height = 200;
+    if (height > 500) height = 500;
+
+    cardElement.style.width = `${width}px`;
+    cardElement.style.height = `${height}px`;
     cardElement.className = `card ${suit}`;
     cardElement.innerHTML = `
-          <div style="font-size: 4rem; position: absolute; top: -5px; left: 5px;">
-              ${suitSymbols[suit]}
-          </div>
-          <div style="font-size: 5rem; position: relative;">
-              ${value}
-          </div>
-          <div style="font-size: 4rem; position: absolute; bottom: -5px; right: 5px; transform: rotate(180deg);">
-              ${suitSymbols[suit]}
-          </div>
-      `;
+      <div class="top-left">
+        ${suitSymbols[suit]}
+      </div>
+      <div>
+        ${value}
+      </div>
+      <div class="bottom-right">
+        ${suitSymbols[suit]}
+      </div>
+    `;
   }
 
   generateButton.addEventListener("click", generateCard);
 
-  // Generar una carta al cargar la página
+  cardWidthInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      generateCard();
+    }
+  });
+
+  cardHeightInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      generateCard();
+    }
+  });
+
   generateCard();
 
-  // Generar una nueva carta cada 10 segundos
   setInterval(generateCard, 10000);
 });

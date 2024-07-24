@@ -15,15 +15,47 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container-fluid text-center">
-      <h1 class="mt-5">Card Generator</h1>
+      <h1 class="mt-5 text-white" style="font-weight: bold; font-size: 60px;">
+        • . Let's play cards! . •
+      </h1>
+      <div class="row justify-content-center mb-4">
+        <div class="col-auto">
+          <label for="cardWidth" class="form-label text-white">Width:</label>
+          <input
+            type="number"
+            id="cardWidth"
+            class="form-control"
+            placeholder="Width in px"
+            min="90"
+            max="300"
+          />
+        </div>
+        <div class="col-auto">
+          <label for="cardHeight" class="form-label text-white">Height:</label>
+          <input
+            type="number"
+            id="cardHeight"
+            class="form-control"
+            placeholder="Height in px"
+            min="200"
+            max="500"
+          />
+        </div>
+      </div>
       <div id="card" class="card mx-auto my-4"></div>
       <button id="generateButton" class="btn btn-success mb-4">
         Ask for another card
       </button>
-      <div class="fixed-bottom p-4">
+      <div class="bottom p-4 text-white">
         Made with ❤️ by
         <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
       </div>
